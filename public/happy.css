@@ -1,17 +1,11 @@
-.cardtransition-enter {
-  opacity: 0.01;
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center; /* !!! */
 }
 
-.cardtransition-enter.cardtransition-enter-active {
-  opacity: 1;
-  transition: opacity 50s fade;
-}
-
-.cardtransition-leave {
-  opacity: 1;
-}
-
-.cardtransition-leave.cardtransition-leave-active {
-  opacity: 0.01;
-  transition: opacity 60s fade;
+div {
+    margin: 0 auto;
+    text-align: left;
+    width: 800px;
 }
