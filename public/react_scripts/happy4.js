@@ -22,13 +22,12 @@ var Card = React.createClass({
 
   render: function(){
     return (
-      <li>
         <div>
           <h2>{this.props.phrase}</h2>
-          <h3>- {this.props.name}</h3>
-          <img src={this.props.img} alt="Pic based on text"/>
+          <h3>-From  {this.props.name}</h3>
+          <img src={this.props.img} alt="Pic based on text"/><br />
+          <button onClick={this.props.onClick}>Yes, it is all true, no need to tell me this again.</button>
         </div>
-      </li>
       )
   }
 })
@@ -36,17 +35,24 @@ var Card = React.createClass({
 
 var App = React.createClass({
 
+  deleteHappy: function (happy) {
+    this.state.happy.splice(this.state.happy.indexOf(happy), 1);
+    this.setState({happy: this.state.happy});
+  },
+
   getInitialState: function() {
     return {
+      // happy: this.props.happy.splice(0)
       happy: happy
     }
   },
   render: function (){
+    var that = this;
     return(
       <div>
         {this.state.happy.map(function (happy){
           return (
-            <Card name={happy.name} phrase={happy.phrase} img={happy.img} key={happy.key}></Card>
+            <Card onClick={that.deleteHappy.bind(null, happy)} name={happy.name} phrase={happy.phrase} img={happy.img} key={happy.key}></Card>
             )
         })}
       </div>

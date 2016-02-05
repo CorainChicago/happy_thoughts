@@ -8,8 +8,8 @@ puts "Server started: http://localhost:#{port}/"
 root = File.expand_path './public'
 server = WEBrick::HTTPServer.new Port: port, DocumentRoot: root
 
-server.mount_proc '/api/comments' do |req, res|
-  comments = JSON.parse(File.read('./comments.json', encoding: 'UTF-8'))
+server.mount_proc '/api/happys' do |req, res|
+  happys = JSON.parse(File.read('./happys.json', encoding: 'UTF-8'))
 
   if req.request_method == 'POST'
     # Assume it's well formed
@@ -17,10 +17,10 @@ server.mount_proc '/api/comments' do |req, res|
     req.query.each do |key, value|
       comment[key] = value.force_encoding('UTF-8')
     end
-    comments << comment
+    happys << comment
     File.write(
-      './comments.json',
-      JSON.pretty_generate(comments, indent: '    '),
+      './happys.json',
+      JSON.pretty_generate(happys, indent: '    '),
       encoding: 'UTF-8'
     )
   end
@@ -28,7 +28,7 @@ server.mount_proc '/api/comments' do |req, res|
   # always return json
   res['Content-Type'] = 'application/json'
   res['Cache-Control'] = 'no-cache'
-  res.body = JSON.generate(comments)
+  res.body = JSON.generate(happys)
 end
 
 trap('INT') { server.shutdown }
