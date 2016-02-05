@@ -44,5 +44,5 @@ var HappyThoughtList = React.createClass({
 
 })
 
-ReactDOM.render(<HappyThoughtList/>, document.getElementById('happy2'))
+ReactDOM.render(<HappyThoughtList/>, document.getElementById('happy'))
 

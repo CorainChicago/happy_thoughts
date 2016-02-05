@@ -54,5 +54,5 @@ var App = React.createClass({
   }
 })
 
-ReactDOM.render(<App></App>, document.getElementById('happy3'))
+ReactDOM.render(<App></App>, document.getElementById('happy'))
 

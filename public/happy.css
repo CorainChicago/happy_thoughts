@@ -1,0 +1,17 @@
+.cardtransition-enter {
+  opacity: 0.01;
+}
+
+.cardtransition-enter.cardtransition-enter-active {
+  opacity: 1;
+  transition: opacity 50s fade;
+}
+
+.cardtransition-leave {
+  opacity: 1;
+}
+
+.cardtransition-leave.cardtransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 60s fade;
+}
